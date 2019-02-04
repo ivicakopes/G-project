@@ -1,28 +1,3 @@
-/* import React, { Component } from 'react';
-import fire from './config/Fire';
-
-export default class Navbar extends Component {
-    constructor(props) {
-        super(props);
-        this.logout = this.logout.bind(this);
-    }
-
-
-    logout() {
-        fire.auth().signOut();
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Welcome to Navbar</h1>
-                <br/>
-                <button onClick={this.logout}>Logout</button>
-                </div>
-        );
-    }
-} */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';

@@ -1,42 +1,26 @@
 import React, { Component } from 'react';
-import './App.css';
-import fire from './config/Fire';
-import Home from './Home';
-import Login from './Login';
-
-//import MenuAppBar from './MenuAppBar';
-
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Navbar from './components/layout/Navbar';
+import Dashboard from './components/dashboard/Dashboard';
+import ProjectDetails from './components/project/ProjectDetails';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
+import CreateProject from './components/project/CreateProject';
 class App extends Component {
-  constructor() {
-    super();
-    this.state = ({
-      user: null,
-    });
-    this.authListener = this.authListener.bind(this);
-  }
-
-  componentDidMount() {
-    this.authListener();
-  }
-
-  authListener() {
-    fire.auth().onAuthStateChanged((user) => {
-      //console.log(user);
-      if (user) {
-        this.setState({ user });
-        localStorage.setItem('user', user.uid);
-      } else {
-        this.setState({ user: null });
-        localStorage.removeItem('user');
-      }
-    });
-  }
-
   render() {
-    return (      
-      <div className="App">     
-        {this.state.user ? <Home /> : <Login />}
-      </div>
+    return ( 
+      <BrowserRouter>
+        <div className="App">  
+            <Navbar/>
+            <Switch>
+              <Route exact path="/" component={Dashboard} />
+              <Route path="/project/:id" component={ProjectDetails} />
+              <Route path="/signin" component={SignIn}/>
+              <Route path="/signup" component={SignUp}/>
+              <Route path="/create" component={CreateProject}/>
+            </Switch>
+        </div> 
+      </BrowserRouter>       
     );
   }
 }

@@ -19,7 +19,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Home from './Home1';
 //import AppRouter from './AppRouter';
 const drawerWidth = 240;
-const strana = () => <Home/>;
+
 const styles = theme => ({
   root: {
     display: 'flex',

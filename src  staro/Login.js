@@ -54,6 +54,8 @@ class Login extends Component {
       <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Signup</button>
       <Radio></Radio>
       <Radio></Radio>
+
+      div
  </form>
  
  </div>
