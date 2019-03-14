@@ -1,9 +1,11 @@
 export const createProject = (project) => {
    return (dispatch, getState, {getFirebase, getFirestore}) => {
       //make async call to database
+
       const firestore = getFirestore();
+
       firestore.collection('projects').add({
-         ...project,
+         ...project, // ovim dobijamo sva polja iz project (dekompozicija)
          authorFirstName: 'hjh',
          authorLastName: 'gfhdhf',
          authorId: 1234,
